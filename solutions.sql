@@ -37,3 +37,9 @@
 
 -- 12. You'd like to get the first and last name of the last member(s) who signed up - not just the date. How can you do that?
 -- Answer: [[ select firstname, surname, joindate from cd.members order by joindate desc limit 1; ]]
+
+
+##### JOINS ######
+
+--1. How can you produce a list of the start times for bookings by members named 'David Farrell'?
+-- Answer: [[ select cd.bookings.starttime from cd.members left join cd.bookings on cd.members.memid = cd.bookings.memid where surname = 'Farrell' and firstname = 'David'; ]]
