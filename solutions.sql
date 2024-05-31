@@ -43,3 +43,6 @@
 
 --1. How can you produce a list of the start times for bookings by members named 'David Farrell'?
 -- Answer: [[ select cd.bookings.starttime from cd.members left join cd.bookings on cd.members.memid = cd.bookings.memid where surname = 'Farrell' and firstname = 'David'; ]]
+
+--2. How can you produce a list of the start times for bookings for tennis courts, for the date '2012-09-21'? Return a list of start times and facility name pairings, ordered by the time.
+-- Answer: [[ select cd.bookings.starttime, cd.facilities.name from cd.bookings left join cd.facilities on cd.bookings.facid = cd.facilities.facid where date(cd.bookings.starttime) = '2012-09-21' and cd.facilities.name like 'Tennis Court%' order by cd.bookings.starttime asc; ]]
